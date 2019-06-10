@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style/style.css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+
+
+  <title>Blablatron</title>
+</head>
+
+<body>
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 col-md-4 log">
+          <img id="logo" src="./style/petit_logo.png" alt="Logo" />
+        </div>
+        <div class="col-sm-12 col-md-8 tit">
+          <h1>BLABLATRON</h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-5 typeCit">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Choisi ton blabla
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="typeCit1"><Label>Latin</Label></a>
+                <a class="dropdown-item" href="typeCit2">Langue de bois spéciale élections</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 nbCit">
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Combien de blabla?
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">1</a>
+                <a class="dropdown-item" href="#">2</a>
+                <a class="dropdown-item" href="#">3</a>
+                <a class="dropdown-item" href="#">4</a>
+                <a class="dropdown-item" href="#">5</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-1"></div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-10 bloc">
+          <div class="row">
+            <div class="col-md-5">
+              <img class="gif" src="https://media.giphy.com/media/l46CDLNzo7uaJp7l6/giphy.gif" alt="gif mouth" />
+            </div>
+            <div class="col-md-7 citation-wrapper">
+              <img id="bubble" src="./style/bulle.png" alt="Cartoon bubble" />
+              <span id="citation"></span>
+            </div>
+          </div>
+          <div class="row button">
+            <div class="col-md-12">
+              <button id="tellMeMore" type="button" class="btn btn-outline-dark">
+                Tell me more
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+
+    <div id="quoteDisplay">
+      <!-- Une citation aléatoire s'affiche -->
+    </div>
+  </section>
+
+  <script src="./blablatron.js"></script>
+</body>
+
+</html>
