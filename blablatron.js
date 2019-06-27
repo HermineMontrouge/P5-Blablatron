@@ -2,6 +2,7 @@
 
 class Blablatron {
   constructor() {
+
     /*---------------Tableau "Latin"--------------*/
 
     // Bout de citation Latin 1
@@ -73,6 +74,7 @@ class Blablatron {
       "de solutions rapides correspondant aux grands axes sociaux prioritaires.",
       "d’un programme plus humain, plus fraternel et plus juste!"
     ];
+
     /*---------------Déclarartion des objets--------------*/
 
     this.typeCit1 = document.getElementById("typeCit1");
@@ -91,7 +93,6 @@ class Blablatron {
     this.randomldbpart2 = Math.floor(Math.random() * ldbpart2.length);
     this.randomldbpart3 = Math.floor(Math.random() * ldbpart3.length);
     this.randomldbpart4 = Math.floor(Math.random() * ldbpart4.length);
-    this.finalQuote = "";
     this.button = document.getElementById("tellMeMore");
     this.textZone = document.getElementById("textZone");
   }
@@ -102,7 +103,7 @@ class Blablatron {
     this.typeCit1.addEventListener("click", function () {
       console.log("listening latin button");
       //Si le dropdown "Latin" est sélectionné, renvoie la valeur "latin"
-      if (this.typeCit1 != "typeCit1") {
+      if (this.id == "typeCit1") {
         this.resultTypeQuote = "latin";
       }
     });
@@ -110,7 +111,7 @@ class Blablatron {
     this.typeCit2.addEventListener("click", function () {
       console.log("listening ldb button");
       //Si le dropdown "Langue de bois" est sélectionné, renvoie la valeur "ldb"
-      if (this.typeCit2 != "typeCit2") {
+      if (this.id == "typeCit2") {
         this.resultTypeQuote = "ldb";
       }
       return this.resultTypeQuote;
@@ -123,8 +124,10 @@ class Blablatron {
   numberQuote() {
     //Renvoie la valeur de 1 à 5 sélectionné par l'utilisateur
     if (this.nbCit1.addEventListener("click", function () {
-        console.log("listening button 1");
-        return (this.resultNumberQuote = 1);
+
+        this.resultNumberQuote = 1;
+        console.log(this.resultNumberQuote);
+        return this.resultNumberQuote;
       }));
     if (this.nbCit2.addEventListener("click", function () {
         console.log("listening button 2");
@@ -143,6 +146,7 @@ class Blablatron {
         return (this.resultNumberQuote = 5);
       }));
   };
+
   /*---------------Méthode random Latin--------------*/
 
   randomLatin() {
@@ -158,6 +162,7 @@ class Blablatron {
       latinpart3[this.randomlatinpart3]
     );
   }
+
   /*--------Méthode random "Langue de bois"------*/
 
   randomlangueDeBois() {
@@ -176,50 +181,37 @@ class Blablatron {
     );
   }
 
-  /*---------------------------------------------------*/
-  /*------------------Fonction tellMeMore----------------*/
-  /*---------------------------------------------------*/
+  /*------------------Boutton tellMeMore----------------*/
 
   tellMeMore() {
-    // si je clique sur latin (typeQuote=1) alors
-    // si je clique sur 1 (nbCitation=1) alors
-    // jappelle la methode latin
-    // jappelle la methode nombre de phrase
-
-    //si je clique sur ldb (typeQuote=2) alors
-    // si je clique sur nbCitation alors
-    // jappelle la methode langue de bois
-
-    // Boucle de sélection pour latin
-    /*
-          if (this.resultTypeQuote === 1) {
-            for (let i = 1; i > this.resultNumberQuote; i++) {
-              document.getElementById("textZone").innerHTML += latin();
-            }
-            // Boucle de sélection pour langue de bois
-          } else {
-            for (let i = 0; i > this.resultNumberQuote; i++) {
-              document.getElementById("textZone").innerHTML += langueDeBois();
-            }
-          }    */
-
     this.button.addEventListener("click", function () {
-      console.log("listening tell me more button");
-      return (this.resultNumberQuote = "go");
+      console.log("click bouton tellmeMore");
+      console.log(this.resultNumberQuote);
+      console.log(this.resultNumberQuote);
+      if (this.resultTypeQuote == "latin") {
+        console.log("cest du latin")
+        // Boucle de sélection pour latin
+        for (let i = 0; i > this.resultNumberQuote; i++) {
+          console.log("je suis rentrée dans ma boucle ldb on m'appelle" + this.resultNumberQuote)
+          console.log("resultNumberQuote est écouté");
+          document.getElementById("textZone").innerHTML += this.randomLatin();
+        }
+        // Boucle de sélection pour langue de bois
+      } else if (this.resultTypeQuote == "ldb") {
+        console.log("je suis dans tellme et ldb")
+        for (let i = 0; i > this.resultNumberQuote; i++) {
+          console.log("je suis rentrée dans ma boucle ldb on m'appelle" + this.resultNumberQuote)
+          document.getElementById("textZone").innerHTML += randomLangueDeBois();
+        }
+      }
     });
-    /*
-document.getElementById("tellMeMore").addEventListener("click", function() {
-  const resultat = tellMeMore();
-  /* console.log(resultat); */
-    // textZone.innerHTML = resultat;
-    // });
+  };
+};
 
-  }
-}
 /*---------------Blablatron--------------*/
 
-const blablatron = new Blablatron();
+blablatron = new Blablatron();
 
+blablatron.tellMeMore();
 blablatron.typeQuote();
 blablatron.numberQuote();
-blablatron.tellMeMore();
