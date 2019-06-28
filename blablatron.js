@@ -1,15 +1,14 @@
 /*-----------------Selection of elements on the dom-----------------*/
 
 const tellMeMoreBtn = document.querySelector("#tellMeMore");
-const dropdownMenuBtn = document.querySelector("#dropdownMenuButton");
 const textZone = document.querySelector("#textZone");
 const citationLatinBtn = document.querySelector("#typeCit1");
 const citationLangueDeBoisBtn = document.querySelector("#typeCit2");
-const postOneQuote = document.querySelector("#nbCit1");
-const postTwoQuote = document.querySelector("#nbCit2");
-const postThreeQuote = document.querySelector("#nbCit3");
-const postFourQuote = document.querySelector("#nbCit4");
-const postFiveQuote = document.querySelector("#nbCit5");
+const postOneQuoteBtn = document.querySelector("#nbCit1");
+const postTwoQuoteBtn = document.querySelector("#nbCit2");
+const postThreeQuoteBtn = document.querySelector("#nbCit3");
+const postFourQuoteBtn = document.querySelector("#nbCit4");
+const postFiveQuoteBtn = document.querySelector("#nbCit5");
 
 /*---------------Data citations--------------*/
 
@@ -78,7 +77,7 @@ const dataCitationsLangueDeBois = [
 /*-----------------Variables-----------------*/
 
 let typeCitation = null;
-let numberCitation = null;
+let numberCitation = 0;
 
 /*-----------------"Blablatron" Class-----------------*/
 
@@ -101,13 +100,14 @@ class Blablatron {
     ];
     const end = this._end[Math.floor(Math.random() * this._end.length)];
 
-    const citation = start + " " + middle + " " + middle + " " + end;
+    const citation = start + " " + middle + " " + next + " " + end;
     return citation;
   }
 
   // quote display
   displayCitation() {
     const citations = this.generateCitation();
+    for (let i = 0; i > this.numberCitation; i++);
     textZone.innerHTML = citations;
   }
 }
@@ -132,138 +132,43 @@ const citationsLangueDeBois = new Blablatron(
 
 citationLatinBtn.addEventListener("click", function () {
   typeCitation = "latin";
+  console.log("c'est du latin");
 });
 
 citationLangueDeBoisBtn.addEventListener("click", function () {
   typeCitation = "langue de bois";
 });
 
-tellMeMoreBtn.addEventListener("click", function () {
-  if (typeCitation === "latin") {
-    console.log("citation latin");
-    citationsLatin.displayCitation();
-  } else if (typeCitation === "langue de bois") {
-    // Affiche les citations langue de bois
-    console.log("citation langue de bois");
-  }
+postOneQuoteBtn.addEventListener("click", function () {
+  numberCitation = 1;
+  console.log("on veut une seule citation");
 });
 
-/*------------------Boutton tellMeMore----------------*/
-/*
-  tellMeMore() {
-    this.button.addEventListener("click", function () {
-      console.log("click bouton tellmeMore");
-      console.log(this.resultNumberQuote);
-      console.log(this.resultNumberQuote);
-      if (this.resultTypeQuote == "latin") {
-        console.log("cest du latin")
-        // Boucle de sélection pour latin
-        for (let i = 0; i > this.resultNumberQuote; i++) {
-          console.log("je suis rentrée dans ma boucle ldb on m'appelle" + this.resultNumberQuote)
-          console.log("resultNumberQuote est écouté");
-          document.getElementById("textZone").innerHTML += this.randomLatin();
-        }
-        // Boucle de sélection pour langue de bois
-      } else if (this.resultTypeQuote == "ldb") {
-        console.log("je suis dans tellme et ldb")
-        for (let i = 0; i > this.resultNumberQuote; i++) {
-          console.log("je suis rentrée dans ma boucle ldb on m'appelle" + this.resultNumberQuote)
-          document.getElementById("textZone").innerHTML += randomLangueDeBois();
-        }
-      }
-    });
-  };
-};
-*/
-/*---------------Blablatron--------------*/
-/*
-blablatron = new Blablatron();
+postTwoQuoteBtn.addEventListener("click", function () {
+  numberCitation = 2;
+  console.log("on veut deux citations");
+});
 
-blablatron.tellMeMore();
-blablatron.typeQuote();
-blablatron.numberQuote();
-*/
-/*-----------------Méthode choix type citation---------------*/
-/*
-  typeQuote() {
-    this.typeCit1.addEventListener("click", function () {
-      console.log("listening latin button");
-      //Si le dropdown "Latin" est sélectionné, renvoie la valeur "latin"
-      if (this.id == "typeCit1") {
-        this.resultTypeQuote = "latin";
-      }
-    });
+postThreeQuoteBtn.addEventListener("click", function () {
+  numberCitation = 3;
+});
 
-    this.typeCit2.addEventListener("click", function () {
-      console.log("listening ldb button");
-      //Si le dropdown "Langue de bois" est sélectionné, renvoie la valeur "ldb"
-      if (this.id == "typeCit2") {
-        this.resultTypeQuote = "ldb";
-      }
-      return this.resultTypeQuote;
-    });
+postFourQuoteBtn.addEventListener("click", function () {
+  numberCitation = 4;
+});
+
+postFiveQuoteBtn.addEventListener("click", function () {
+  numberCitation = 5;
+});
+
+tellMeMoreBtn.addEventListener("click", function () {
+  if (typeCitation === "latin") {
+    citationsLatin.displayCitation();
+  } else if (typeCitation === "langue de bois") {
+    citationsLangueDeBois.displayCitation();
   }
-*/
-/*----------------Choix nombre citation--------------*/
-/*
-  //récupération du dropdown nbCit
-  numberQuote() {
-    //Renvoie la valeur de 1 à 5 sélectionné par l'utilisateur
-    if (this.nbCit1.addEventListener("click", function () {
-
-        this.resultNumberQuote = 1;
-        console.log(this.resultNumberQuote);
-        return this.resultNumberQuote;
-      }));
-    if (this.nbCit2.addEventListener("click", function () {
-        console.log("listening button 2");
-        return (this.resultNumberQuote = 2);
-      }));
-    if (this.nbCit3.addEventListener("click", function () {
-        console.log("listening button 3");
-        return (this.resultNumberQuote = 3);
-      }));
-    if (this.nbCit4.addEventListener("click", function () {
-        console.log("listening button 4");
-        return (this.resultNumberQuote = 4);
-      }));
-    if (this.nbCit5.addEventListener("click", function () {
-        console.log("listening button 5");
-        return (this.resultNumberQuote = 5);
-      }));
-  };
-*/
-
-
-/*
-  // random "latin"
-  randomLatin() {
-    // Random creation of a blabla from the "Latin" table
-    this.randomlatinpart1;
-    this.randomlatinpart2;
-    this.randomlatinpart3;
-
-    // return the random dataset
-    return (
-      latinpart1[this.randomlatinpart1] +
-      latinpart2[this.randomlatinpart2] +
-      latinpart3[this.randomlatinpart3]
-    );
+  if (numberCitation === 1) {
+    for (let i = 0; i > this.numberCitation; i++);
+    displayCitation() ++;
   }
-
-  // random Langue de bois"
-  randomlangueDeBois() {
-    // Random creation of a blabla from the "Langue de bois" table
-    this.randomldbpart1;
-    this.randomldbpart2;
-    this.randomldbpart3;
-    this.randomldbpart4;
-
-    // return the random dataset
-    return (
-      ldbpart1[this.randomldbpart1] +
-      ldbpart2[this.randomldbpart2] +
-      ldbpart3[this.randomldbpart3] +
-      ldbpart4[this.randomldbpart4]
-    );
-    */
+});
