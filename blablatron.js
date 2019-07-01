@@ -15,32 +15,22 @@ const postFiveQuoteBtn = document.querySelector("#nbCit5");
 //Array "Latin"
 
 const dataCitationsLatin = [
-  ["Lorem ipsum",
+  [
+    "Lorem ipsum",
     "dolor sit amet",
     "consectetur adipiscing elit",
     "Sed non risus"
   ],
-  ["Suspendisse",
-    "lectus tortor",
-    "dignissim",
-    "sit amet"
-  ],
-  ["adipiscing nec",
-    "ultricies sed",
-    "dolor",
-    "Cras elementum ultrices diam"
-  ],
-  ["adipiscing nec",
-    "ultricies sed",
-    "dolor",
-    "Cras elementum ultrices diam"
-  ]
+  ["Suspendisse", "lectus tortor", "dignissim", "sit amet"],
+  ["adipiscing nec", "ultricies sed", "dolor", "Cras elementum ultrices diam"],
+  ["adipiscing nec", "ultricies sed", "dolor", "Cras elementum ultrices diam"]
 ];
 
 // Array "Langue de bois"
 
 const dataCitationsLangueDeBois = [
-  ["Mesdames, Messieurs,",
+  [
+    "Mesdames, Messieurs,",
     "Je reste fondamentalement persuadé que",
     "Dès lors, sachez que je me battrai pour faire admettre que",
     "C’est en toute connaissance de cause que je peux affirmer aujourd’hui que",
@@ -48,7 +38,8 @@ const dataCitationsLangueDeBois = [
     "J’ai depuis longtemps défendu l’idée que",
     "C’est en toute conscience que je m’engage pour que"
   ],
-  ["la conjoncture actuelle",
+  [
+    "la conjoncture actuelle",
     "la situation d’exclusion que certains d’entre vous connaissent",
     "l’acuité des problèmes de la vie quotidienne",
     "la volonté farouche de sortir notre pays de la crise",
@@ -56,7 +47,8 @@ const dataCitationsLangueDeBois = [
     "le particularisme dû à notre histoire unique",
     "l’aspiration plus que légitime de chacun au renouveau"
   ],
-  ["doit s’intégrer à la finalisation globale",
+  [
+    "doit s’intégrer à la finalisation globale",
     "oblige à la prise ne compte encore plus effective",
     "interpelle le citoyen que je suis et nous oblige tous à aller de l’avant dans la voie",
     "a pour conséquence obligatoire l’urgente nécessité",
@@ -64,7 +56,8 @@ const dataCitationsLangueDeBois = [
     "doit nous amener au choix réellement impératif",
     "doit prendre en compte les besoins"
   ],
-  ["d’un processus allant vers plus d’égalité!",
+  [
+    "d’un processus allant vers plus d’égalité!",
     "d’un avenir s’orientant vers plus de progrès et plus de justice.",
     "d’une restructuration dans laquelle chacun pourra enfin trouver sa dignité!",
     "d’une valorisation sans concession de nos caractères spécifiques.",
@@ -77,7 +70,8 @@ const dataCitationsLangueDeBois = [
 /*-----------------Variables-----------------*/
 
 let typeCitation = null;
-let numberCitation = 0;
+let numberCitation = null;
+let final = "";
 
 /*-----------------"Blablatron" Class-----------------*/
 
@@ -87,17 +81,13 @@ class Blablatron {
     this._middle = middle;
     this._next = next;
     this._end = end;
-  };
+  }
 
   // quote generator
   generateCitation() {
     const start = this._begin[Math.floor(Math.random() * this._begin.length)];
-    const middle = this._middle[
-      Math.floor(Math.random() * this._middle.length)
-    ];
-    const next = this._next[
-      Math.floor(Math.random() * this._next.length)
-    ];
+    const middle = this._middle[Math.floor(Math.random() * this._middle.length)];
+    const next = this._next[Math.floor(Math.random() * this._next.length)];
     const end = this._end[Math.floor(Math.random() * this._end.length)];
 
     const citation = start + " " + middle + " " + next + " " + end;
@@ -107,9 +97,20 @@ class Blablatron {
   // quote display
   displayCitation() {
     const citations = this.generateCitation();
-    for (let i = 0; i > this.numberCitation; i++);
-    textZone.innerHTML = citations;
+    // textZone.innerHTML = citations;
+    // let temp = citation;
+    // final = citations + temp;
+    console.log("display");
   }
+
+
+
+  // multiplicateCitation(numberCitation) {
+  //   for (let i = 0; i < numberCitation; i++) {
+  //     citationsLatin.displayCitation() += numberCitation;
+  //     return numberCitation;
+  //   }
+  // }
 }
 
 /*-----------------Instantiation-----------------*/
@@ -137,6 +138,7 @@ citationLatinBtn.addEventListener("click", function () {
 
 citationLangueDeBoisBtn.addEventListener("click", function () {
   typeCitation = "langue de bois";
+  console.log("c'est de la langue de bois");
 });
 
 postOneQuoteBtn.addEventListener("click", function () {
@@ -151,24 +153,59 @@ postTwoQuoteBtn.addEventListener("click", function () {
 
 postThreeQuoteBtn.addEventListener("click", function () {
   numberCitation = 3;
+  console.log("on veut trois citations");
 });
 
 postFourQuoteBtn.addEventListener("click", function () {
   numberCitation = 4;
+  console.log("on veut quatre citations");
 });
 
 postFiveQuoteBtn.addEventListener("click", function () {
   numberCitation = 5;
+  console.log("on veut cinq citations");
 });
 
+
 tellMeMoreBtn.addEventListener("click", function () {
-  if (typeCitation === "latin") {
-    citationsLatin.displayCitation();
-  } else if (typeCitation === "langue de bois") {
-    citationsLangueDeBois.displayCitation();
+
+  if (numberCitation == 1) {
+    for (let i = numberCitation; i > 0; i--) {
+      citationsLatin.displayCitation();
+    }
   }
-  if (numberCitation === 1) {
-    for (let i = 0; i > this.numberCitation; i++);
-    displayCitation() ++;
+  if (numberCitation == 2) {
+    for (let i = numberCitation; i > 0; i--) {
+      citationsLatin.displayCitation();
+    }
   }
+  if (numberCitation == 3) {
+    for (let i = numberCitation; i > 0; i--) {
+      citationsLatin.displayCitation();
+    }
+  }
+  if (numberCitation == 4) {
+    for (let i = numberCitation; i > 0; i--) {
+      citationsLatin.displayCitation();
+    }
+  }
+  if (numberCitation == 5) {
+    for (let i = numberCitation; i > 0; i--) {
+      citationsLatin.displayCitation();
+      console.log("combien de citation?");
+    }
+  }
+  // if (typeCitation === "latin") {
+  //   citationsLatin.displayCitation();
+  // }
+  //   console.log("c'est du laaaaaaatin");
+  // } else if (typeCitation === "langue de bois") {
+  //   citationsLangueDeBois.displayCitation();
+  // }
+  // if (numberCitation == 2) {
+  //   for (let i = 0; i < numberCitation; i++) {
+  //     Math.random
+  //   }
+  //   console.log("c'est ldbbbbbbb");}
+
 });
