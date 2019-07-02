@@ -70,8 +70,7 @@ const dataCitationsLangueDeBois = [
 /*-----------------Variables-----------------*/
 
 let typeCitation = null;
-let numberCitation = null;
-let final = "";
+let numberCitation = 1;
 
 /*-----------------"Blablatron" Class-----------------*/
 
@@ -97,13 +96,8 @@ class Blablatron {
   // quote display
   displayCitation() {
     const citations = this.generateCitation();
-    // textZone.innerHTML = citations;
-    // let temp = citation;
-    // final = citations + temp;
-    console.log("display");
+    textZone.innerHTML = citations;
   }
-
-
 
   // multiplicateCitation(numberCitation) {
   //   for (let i = 0; i < numberCitation; i++) {
@@ -147,21 +141,34 @@ postOneQuoteBtn.addEventListener("click", function () {
 });
 
 postTwoQuoteBtn.addEventListener("click", function () {
+  if (document.getElementById('nbCit2').checked) {
+    numberCitation = document.getElementById('nbCit2').value;
+  }
   numberCitation = 2;
   console.log("on veut deux citations");
+  console.log(numberCitation);
 });
 
 postThreeQuoteBtn.addEventListener("click", function () {
+  if (document.getElementById('nbCit3').checked) {
+    numberCitation = document.getElementById('nbCit3').value;
+  }
   numberCitation = 3;
   console.log("on veut trois citations");
 });
 
 postFourQuoteBtn.addEventListener("click", function () {
+  if (document.getElementById('nbCit4').checked) {
+    numberCitation = document.getElementById('nbCit4').value;
+  }
   numberCitation = 4;
   console.log("on veut quatre citations");
 });
 
 postFiveQuoteBtn.addEventListener("click", function () {
+  if (document.getElementById('nbCit5').checked) {
+    numberCitation = document.getElementById('nbCit5').value;
+  }
   numberCitation = 5;
   console.log("on veut cinq citations");
 });
@@ -177,6 +184,7 @@ tellMeMoreBtn.addEventListener("click", function () {
   if (numberCitation == 2) {
     for (let i = numberCitation; i > 0; i--) {
       citationsLatin.displayCitation();
+      console.log("deux citations latines");
     }
   }
   if (numberCitation == 3) {
@@ -197,8 +205,6 @@ tellMeMoreBtn.addEventListener("click", function () {
   }
   // if (typeCitation === "latin") {
   //   citationsLatin.displayCitation();
-  // }
-  //   console.log("c'est du laaaaaaatin");
   // } else if (typeCitation === "langue de bois") {
   //   citationsLangueDeBois.displayCitation();
   // }
@@ -206,6 +212,7 @@ tellMeMoreBtn.addEventListener("click", function () {
   //   for (let i = 0; i < numberCitation; i++) {
   //     Math.random
   //   }
-  //   console.log("c'est ldbbbbbbb");}
+  //   console.log("c'est ldbbbbbbb");
+  // }
 
 });
