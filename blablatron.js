@@ -94,9 +94,9 @@ class Blablatron {
   }
 
   // quote display
-  displayCitation() {
-    const citations = this.generateCitation();
-    textZone.innerHTML = citations;
+  displayCitation(citation) {
+    console.log('=======')
+    textZone.innerHTML = citation;
   }
 
   // multiplicateCitation(numberCitation) {
@@ -176,33 +176,28 @@ postFiveQuoteBtn.addEventListener("click", function () {
 
 tellMeMoreBtn.addEventListener("click", function () {
 
-  if (numberCitation == 1) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
+  let generatedCitation = ''
+
+  if (typeCitation === 'latin') {
+    for (let i = 0; i < numberCitation; i++) {
+      generatedCitation += citationsLatin.generateCitation()
+      generatedCitation += '<br />'
+      generatedCitation += '<br />'
     }
-  }
-  if (numberCitation == 2) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-      console.log("deux citations latines");
+    citationsLatin.displayCitation(generatedCitation)
+  } else if (typeCitation === 'langue de bois') {
+    for (let i = 0; i < numberCitation; i++) {
+      generatedCitation += citationsLangueDeBois.generateCitation()
+      generatedCitation += '<br />'
+      generatedCitation += '<br />'
     }
+    citationsLangueDeBois.displayCitation(generatedCitation)
   }
-  if (numberCitation == 3) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-    }
-  }
-  if (numberCitation == 4) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-    }
-  }
-  if (numberCitation == 5) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-      console.log("combien de citation?");
-    }
-  }
+
+  
+
+  // console.log(generatedCitation)
+
   // if (typeCitation === "latin") {
   //   citationsLatin.displayCitation();
   // } else if (typeCitation === "langue de bois") {
