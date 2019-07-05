@@ -17,10 +17,10 @@
   <header>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-12 col-md-4">
+        <div class="col-sm-6 col-md-4 logo">
           <img id="logo" src="./style/logo.png" alt="Logo" />
         </div>
-        <div class="col-sm-12 col-md-8">
+        <div class="col-sm-6 col-md-8">
           <h1>BLABLATRON</h1>
         </div>
       </div>
@@ -38,23 +38,31 @@
             </div>
             <div class="col-md-7 citation-wrapper">
               <img id="bubble" src="./style/bubble.png" alt="Cartoon bubble" />
-              <span id="textZone"></span>
+              <div id="content">
+                <span id="textZone">
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                </span>
+              </div>
             </div>
           </div>
           <div class="row buttons">
-            <div class="col-md-4 typeCit">
+            <div class="col-md-3 typeCit">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Choisi ton blabla
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" id="typeCit1" value="1"><Label>Latin</Label></a>
+                  <a class="dropdown-item" id="typeCit1" value="1"><Label>Langue de vipère</Label></a>
                   <a class="dropdown-item" id="typeCit2" value="2"><Label>Langue de bois</Label></a>
                 </div>
               </div>
             </div>
-            <div class="col-md-4 nbCit">
+            <div class="col-md-3 nbCit">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -69,9 +77,14 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
               <button id="tellMeMore" type="button" class="btn btn-outline-dark">
                 Tell me more
+              </button>
+            </div>
+            <div class="col-md-3">
+              <button id="stopIt" type="button" class="btn btn-outline-dark">
+                Stop it please !
               </button>
             </div>
           </div>

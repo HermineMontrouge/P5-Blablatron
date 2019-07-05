@@ -1,29 +1,27 @@
 /*-----------------Selection of elements on the dom-----------------*/
 
-const tellMeMoreBtn = document.querySelector("#tellMeMore");
-const textZone = document.querySelector("#textZone");
-const citationLatinBtn = document.querySelector("#typeCit1");
+const citationLangueDeVipereBtn = document.querySelector("#typeCit1");
 const citationLangueDeBoisBtn = document.querySelector("#typeCit2");
 const postOneQuoteBtn = document.querySelector("#nbCit1");
 const postTwoQuoteBtn = document.querySelector("#nbCit2");
 const postThreeQuoteBtn = document.querySelector("#nbCit3");
 const postFourQuoteBtn = document.querySelector("#nbCit4");
 const postFiveQuoteBtn = document.querySelector("#nbCit5");
+const tellMeMoreBtn = document.querySelector("#tellMeMore");
+const stopItBtnBtn = document.querySelector("#stopIt");
+const textZone = document.querySelector("#textZone");
 
 /*---------------Data citations--------------*/
 
-//Array "Latin"
+//Array "Langue de vipère"
 
-const dataCitationsLatin = [
+const dataCitationsLangueDeVipere = [
   [
-    "Lorem ipsum",
-    "dolor sit amet",
-    "consectetur adipiscing elit",
-    "Sed non risus"
+    "Il paraît que", "J’ai entendu dire que", "D’après les bruits qui courent", "J’arrive pas à y croire"
   ],
-  ["Suspendisse", "lectus tortor", "dignissim", "sit amet"],
-  ["adipiscing nec", "ultricies sed", "dolor", "Cras elementum ultrices diam"],
-  ["adipiscing nec", "ultricies sed", "dolor", "Cras elementum ultrices diam"]
+  ["tu ne sais pas qui est le premier ministre", "tu n’as toujours pas ton permis de conduire", "tu as encore oublié de remplir ta déclatation d’impots", "tu dors jusqu’à midi le dimanche"],
+  ["et ça ne te choque pas du tout", "et tu pars en crise de panique quand on t’en parle", "et tu t’en fiches complètement", "et ça te fait bien marrer"],
+  ["moi je trouve ça scandaleux!", "moi ça me fait mourir de rire!", "moi j’aurais vraiment honte!", "moi je voudrais même plus exister!"]
 ];
 
 // Array "Langue de bois"
@@ -70,7 +68,7 @@ const dataCitationsLangueDeBois = [
 /*-----------------Variables-----------------*/
 
 let typeCitation = null;
-let numberCitation = 1;
+let numberCitation = null;
 
 /*-----------------"Blablatron" Class-----------------*/
 
@@ -94,26 +92,18 @@ class Blablatron {
   }
 
   // quote display
-  displayCitation() {
-    const citations = this.generateCitation();
-    textZone.innerHTML = citations;
+  displayCitation(citation) {
+    textZone.innerHTML = citation;
   }
-
-  // multiplicateCitation(numberCitation) {
-  //   for (let i = 0; i < numberCitation; i++) {
-  //     citationsLatin.displayCitation() += numberCitation;
-  //     return numberCitation;
-  //   }
-  // }
 }
 
 /*-----------------Instantiation-----------------*/
 
-const citationsLatin = new Blablatron(
-  dataCitationsLatin[[0]],
-  dataCitationsLatin[[1]],
-  dataCitationsLatin[[2]],
-  dataCitationsLatin[[3]]
+const citationsLangueDeVipere = new Blablatron(
+  dataCitationsLangueDeVipere[[0]],
+  dataCitationsLangueDeVipere[[1]],
+  dataCitationsLangueDeVipere[[2]],
+  dataCitationsLangueDeVipere[[3]]
 );
 
 const citationsLangueDeBois = new Blablatron(
@@ -125,9 +115,9 @@ const citationsLangueDeBois = new Blablatron(
 
 /*-----------------Event listeners-----------------*/
 
-citationLatinBtn.addEventListener("click", function () {
-  typeCitation = "latin";
-  console.log("c'est du latin");
+citationLangueDeVipereBtn.addEventListener("click", function () {
+  typeCitation = "LangueDeVipere";
+  console.log("c'est de la LangueDeVipere");
 });
 
 citationLangueDeBoisBtn.addEventListener("click", function () {
@@ -136,8 +126,12 @@ citationLangueDeBoisBtn.addEventListener("click", function () {
 });
 
 postOneQuoteBtn.addEventListener("click", function () {
+  if (document.getElementById('nbCit1').checked) {
+    numberCitation = document.getElementById('nbCit1').value;
+  }
   numberCitation = 1;
   console.log("on veut une seule citation");
+  console.log(numberCitation);
 });
 
 postTwoQuoteBtn.addEventListener("click", function () {
@@ -155,6 +149,7 @@ postThreeQuoteBtn.addEventListener("click", function () {
   }
   numberCitation = 3;
   console.log("on veut trois citations");
+  console.log(numberCitation);
 });
 
 postFourQuoteBtn.addEventListener("click", function () {
@@ -163,6 +158,7 @@ postFourQuoteBtn.addEventListener("click", function () {
   }
   numberCitation = 4;
   console.log("on veut quatre citations");
+  console.log(numberCitation);
 });
 
 postFiveQuoteBtn.addEventListener("click", function () {
@@ -171,48 +167,41 @@ postFiveQuoteBtn.addEventListener("click", function () {
   }
   numberCitation = 5;
   console.log("on veut cinq citations");
+  console.log(numberCitation);
 });
 
 
 tellMeMoreBtn.addEventListener("click", function () {
 
-  if (numberCitation == 1) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-    }
-  }
-  if (numberCitation == 2) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-      console.log("deux citations latines");
-    }
-  }
-  if (numberCitation == 3) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-    }
-  }
-  if (numberCitation == 4) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-    }
-  }
-  if (numberCitation == 5) {
-    for (let i = numberCitation; i > 0; i--) {
-      citationsLatin.displayCitation();
-      console.log("combien de citation?");
-    }
-  }
-  // if (typeCitation === "latin") {
-  //   citationsLatin.displayCitation();
-  // } else if (typeCitation === "langue de bois") {
-  //   citationsLangueDeBois.displayCitation();
-  // }
-  // if (numberCitation == 2) {
-  //   for (let i = 0; i < numberCitation; i++) {
-  //     Math.random
-  //   }
-  //   console.log("c'est ldbbbbbbb");
-  // }
+  let generatedCitation = "";
 
+  if (typeCitation === "LangueDeVipere") {
+    if (numberCitation === null) {
+      alert('Choisis le type de blabla et le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
+    } else {
+      for (let i = 0; i < numberCitation; i++) {
+        generatedCitation += citationsLangueDeVipere.generateCitation();
+        generatedCitation += '<br />'
+        generatedCitation += '<br />'
+      }
+      citationsLangueDeVipere.displayCitation(generatedCitation);
+    }
+  } else if (typeCitation === "langue de bois") {
+    if (numberCitation === null) {
+      alert('Choisis le type de blabla et le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
+    } else {
+      for (let i = 0; i < numberCitation; i++) {
+        generatedCitation += citationsLangueDeBois.generateCitation();
+        generatedCitation += '<br />'
+        generatedCitation += '<br />'
+      }
+      citationsLangueDeBois.displayCitation(generatedCitation);
+    }
+  } else {
+    alert('Choisis le type de blabla et le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
+  }
 });
+
+stopItBtnBtn.addEventListener("click", function () {
+  textZone.innerHTML = "";
+})
