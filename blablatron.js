@@ -17,11 +17,11 @@ const textZone = document.querySelector("#textZone");
 
 const dataCitationsLangueDeVipere = [
   [
-    "Il paraît que", "J’ai entendu dire que", "D’après les bruits qui courent", "J’arrive pas à y croire"
+    "Il paraît que", "J’ai entendu dire que", "D’après les bruits qui courent", "J’arrive pas à y croire,", "Non mais c'est fou,", "Je n'en reviens pas,"
   ],
-  ["tu ne sais pas qui est le premier ministre", "tu n’as toujours pas ton permis de conduire", "tu as encore oublié de remplir ta déclatation d’impots", "tu dors jusqu’à midi le dimanche"],
-  ["et ça ne te choque pas du tout", "et tu pars en crise de panique quand on t’en parle", "et tu t’en fiches complètement", "et ça te fait bien marrer"],
-  ["moi je trouve ça scandaleux!", "moi ça me fait mourir de rire!", "moi j’aurais vraiment honte!", "moi je voudrais même plus exister!"]
+  ["tu ne sais pas qui est le premier ministre", "tu sais pas vraiment parler anglais", "tu n’as toujours pas ton permis de conduire", "tu as encore oublié de remplir ta déclatation d’impots", "tu n'as jamais sauté en parachute", "tu dors jusqu’à midi le dimanche"],
+  ["et ça ne te choque pas du tout", "et tu pars en crise de panique quand on t’en parle", "et tu t’en fiches complètement", "et ça te fait marrer", "et ça devient un sujet tabou pour toi", "et tu rentres en furie quand on t'en parle"],
+  ["moi je trouve ça scandaleux!", "moi ça me fait mourir de rire!", "moi j’aurais tellement honte!", "moi je voudrais même plus exister!", "moi je trouve ça vraiment ridicule!", "moi je pense que c'est pathétique"]
 ];
 
 // Array "Langue de bois"
@@ -115,6 +115,11 @@ const citationsLangueDeBois = new Blablatron(
 
 /*-----------------Event listeners-----------------*/
 
+$(".dropdown-menu li a").click(function () {
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+}); // Permet de remplacer le titre du boutton dropdown par la sélection choisie
+
 citationLangueDeVipereBtn.addEventListener("click", function () {
   typeCitation = "LangueDeVipere";
   console.log("c'est de la LangueDeVipere");
@@ -170,25 +175,24 @@ postFiveQuoteBtn.addEventListener("click", function () {
   console.log(numberCitation);
 });
 
-
 tellMeMoreBtn.addEventListener("click", function () {
 
   let generatedCitation = "";
 
   if (typeCitation === "LangueDeVipere") {
     if (numberCitation === null) {
-      alert('Choisis le type de blabla et le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
+      alert('Maintenant que tu as choisi le type de citation, sélectionne le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
     } else {
       for (let i = 0; i < numberCitation; i++) {
         generatedCitation += citationsLangueDeVipere.generateCitation();
         generatedCitation += '<br />'
-        generatedCitation += '<br />'
+        generatedCitation += ' <br />'
       }
       citationsLangueDeVipere.displayCitation(generatedCitation);
     }
   } else if (typeCitation === "langue de bois") {
     if (numberCitation === null) {
-      alert('Choisis le type de blabla et le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
+      alert('Maintenant que tu as choisi le type de citation, sélectionne le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
     } else {
       for (let i = 0; i < numberCitation; i++) {
         generatedCitation += citationsLangueDeBois.generateCitation();
