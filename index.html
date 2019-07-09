@@ -2,20 +2,23 @@
 <html lang="fr">
 
 <head>
+  <!-- Metas -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+  <!-- links -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="style/style.css" />
-  <link rel="shortcut icon" type="image/png" href="./images/favicon.ico" />
+  <link rel="icon" href="favicon.ico" />
 
   <title>Blablatron</title>
 </head>
 
 <body>
   <header>
+    <!-- Logo and H1  -->
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6 col-md-4 logo">
@@ -32,7 +35,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-1"></div>
+        <!-- Grey bloc  -->
         <div class="col-md-10 bloc">
+          <!-- Gif, bubble and text zone  -->
           <div class="row">
             <div class="col-md-5">
               <img class="gif" src="https://media.giphy.com/media/l46CDLNzo7uaJp7l6/giphy.gif" alt="gif mouth" />
@@ -40,17 +45,13 @@
             <div class="col-md-7 citation-wrapper">
               <img id="bubble" src="./style/bubble.png" alt="Cartoon bubble" />
               <div id="content">
-                <span id="textZone">
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                  <p></p>
-                </span>
+                <span id="textZone"></span>
               </div>
             </div>
           </div>
+          <!-- row for the buttons -->
           <div class="row buttons">
+            <!-- Type of citation  -->
             <div class="col-md-3 typeCit">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -64,6 +65,7 @@
                 </ul>
               </div>
             </div>
+            <!-- Number of citations -->
             <div class="col-md-3 nbCit">
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -80,11 +82,13 @@
                 </ul>
               </div>
             </div>
+            <!-- Citations generator -->
             <div class="col-md-3">
               <button id="tellMeMore" type="button" class="btn btn-outline-dark">
                 Tell me more
               </button>
             </div>
+            <!-- Stop the programm -->
             <div class="col-md-3">
               <button id="stopIt" type="button" class="btn btn-outline-dark">
                 Stop it please !
@@ -97,6 +101,7 @@
     </div>
   </section>
 
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
@@ -106,8 +111,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
-
   <script src="./blablatron.js"></script>
+
 </body>
 
 </html>

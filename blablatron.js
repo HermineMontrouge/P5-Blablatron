@@ -122,12 +122,10 @@ $(".dropdown-menu li a").click(function () {
 
 citationLangueDeVipereBtn.addEventListener("click", function () {
   typeCitation = "LangueDeVipere";
-  console.log("c'est de la LangueDeVipere");
 });
 
 citationLangueDeBoisBtn.addEventListener("click", function () {
   typeCitation = "langue de bois";
-  console.log("c'est de la langue de bois");
 });
 
 postOneQuoteBtn.addEventListener("click", function () {
@@ -135,8 +133,6 @@ postOneQuoteBtn.addEventListener("click", function () {
     numberCitation = document.getElementById('nbCit1').value;
   }
   numberCitation = 1;
-  console.log("on veut une seule citation");
-  console.log(numberCitation);
 });
 
 postTwoQuoteBtn.addEventListener("click", function () {
@@ -144,8 +140,6 @@ postTwoQuoteBtn.addEventListener("click", function () {
     numberCitation = document.getElementById('nbCit2').value;
   }
   numberCitation = 2;
-  console.log("on veut deux citations");
-  console.log(numberCitation);
 });
 
 postThreeQuoteBtn.addEventListener("click", function () {
@@ -153,8 +147,6 @@ postThreeQuoteBtn.addEventListener("click", function () {
     numberCitation = document.getElementById('nbCit3').value;
   }
   numberCitation = 3;
-  console.log("on veut trois citations");
-  console.log(numberCitation);
 });
 
 postFourQuoteBtn.addEventListener("click", function () {
@@ -162,8 +154,6 @@ postFourQuoteBtn.addEventListener("click", function () {
     numberCitation = document.getElementById('nbCit4').value;
   }
   numberCitation = 4;
-  console.log("on veut quatre citations");
-  console.log(numberCitation);
 });
 
 postFiveQuoteBtn.addEventListener("click", function () {
@@ -171,8 +161,6 @@ postFiveQuoteBtn.addEventListener("click", function () {
     numberCitation = document.getElementById('nbCit5').value;
   }
   numberCitation = 5;
-  console.log("on veut cinq citations");
-  console.log(numberCitation);
 });
 
 tellMeMoreBtn.addEventListener("click", function () {
