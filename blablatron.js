@@ -10,6 +10,7 @@ const postFiveQuoteBtn = document.querySelector("#nbCit5");
 const tellMeMoreBtn = document.querySelector("#tellMeMore");
 const stopItBtnBtn = document.querySelector("#stopIt");
 const textZone = document.querySelector("#textZone");
+const numberCitationValue = document.querySelector('#dropdownNbCitationValue');
 
 /*---------------Data citations--------------*/
 
@@ -128,39 +129,8 @@ citationLangueDeBoisBtn.addEventListener("click", function () {
   typeCitation = "langue de bois";
 });
 
-postOneQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit1').checked) {
-    numberCitation = document.getElementById('nbCit1').value;
-  }
-  numberCitation = 1;
-});
-
-postTwoQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit2').checked) {
-    numberCitation = document.getElementById('nbCit2').value;
-  }
-  numberCitation = 2;
-});
-
-postThreeQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit3').checked) {
-    numberCitation = document.getElementById('nbCit3').value;
-  }
-  numberCitation = 3;
-});
-
-postFourQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit4').checked) {
-    numberCitation = document.getElementById('nbCit4').value;
-  }
-  numberCitation = 4;
-});
-
-postFiveQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit5').checked) {
-    numberCitation = document.getElementById('nbCit5').value;
-  }
-  numberCitation = 5;
+numberCitationValue.addEventListener('click', function(e) {
+  numberCitation = e.target.innerHTML;
 });
 
 tellMeMoreBtn.addEventListener("click", function () {
