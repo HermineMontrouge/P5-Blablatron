@@ -1,32 +1,58 @@
 /*-----------------Selection of elements on the dom-----------------*/
 
-const citationLangueDeVipereBtn = document.querySelector("#typeCit1");
-const citationLangueDeBoisBtn = document.querySelector("#typeCit2");
-const postOneQuoteBtn = document.querySelector("#nbCit1");
-const postTwoQuoteBtn = document.querySelector("#nbCit2");
-const postThreeQuoteBtn = document.querySelector("#nbCit3");
-const postFourQuoteBtn = document.querySelector("#nbCit4");
-const postFiveQuoteBtn = document.querySelector("#nbCit5");
+const typeCitationValue = document.querySelector("#dropdownCitationType");
+const numberCitationValue = document.querySelector("#dropdownNbCitationValue");
 const tellMeMoreBtn = document.querySelector("#tellMeMore");
-const stopItBtnBtn = document.querySelector("#stopIt");
+const stopItBtn = document.querySelector("#stopIt");
 const textZone = document.querySelector("#textZone");
 
 /*---------------Data citations--------------*/
 
-//Array "Langue de vipère"
+// Array "Langue de vipère"
 
 const dataCitationsLangueDeVipere = [
+  // Begin
   [
-    "Il paraît que", "J’ai entendu dire que", "D’après les bruits qui courent", "J’arrive pas à y croire,", "Non mais c'est fou,", "Je n'en reviens pas,"
+    "Il paraît que",
+    "J’ai entendu dire que",
+    "D’après les bruits qui courent",
+    "J’arrive pas à y croire,",
+    "Non mais c'est fou,",
+    "Je n'en reviens pas,"
   ],
-  ["tu ne sais pas qui est le premier ministre", "tu sais pas vraiment parler anglais", "tu n’as toujours pas ton permis de conduire", "tu as encore oublié de remplir ta déclatation d’impots", "tu n'as jamais sauté en parachute", "tu dors jusqu’à midi le dimanche"],
-  ["et ça ne te choque pas du tout", "et tu pars en crise de panique quand on t’en parle", "et tu t’en fiches complètement", "et ça te fait marrer", "et ça devient un sujet tabou pour toi", "et tu rentres en furie quand on t'en parle"],
-  ["moi je trouve ça scandaleux!", "moi ça me fait mourir de rire!", "moi j’aurais tellement honte!", "moi je voudrais même plus exister!", "moi je trouve ça vraiment ridicule!", "moi je pense que c'est pathétique"]
+  // Middle
+  [
+    "tu ne sais pas qui est le premier ministre",
+    "tu sais pas vraiment parler anglais",
+    "tu n’as toujours pas ton permis de conduire",
+    "tu as encore oublié de remplir ta déclatation d’impots",
+    "tu n'as jamais sauté en parachute",
+    "tu dors jusqu’à midi le dimanche"
+  ],
+  // Next
+  [
+    "et ça ne te choque pas du tout",
+    "et tu pars en crise de panique quand on t’en parle",
+    "et tu t’en fiches complètement",
+    "et ça te fait marrer",
+    "et ça devient un sujet tabou pour toi",
+    "et tu rentres en furie quand on t'en parle"
+  ],
+  // End
+  [
+    "moi je trouve ça scandaleux!",
+    "moi ça me fait mourir de rire!",
+    "moi j’aurais tellement honte!",
+    "moi je voudrais même plus exister!",
+    "moi je trouve ça vraiment ridicule!",
+    "moi je pense que c'est pathétique"
+  ]
 ];
 
 // Array "Langue de bois"
 
 const dataCitationsLangueDeBois = [
+  // Begin
   [
     "Mesdames, Messieurs,",
     "Je reste fondamentalement persuadé que",
@@ -36,6 +62,7 @@ const dataCitationsLangueDeBois = [
     "J’ai depuis longtemps défendu l’idée que",
     "C’est en toute conscience que je m’engage pour que"
   ],
+  // Middle
   [
     "la conjoncture actuelle",
     "la situation d’exclusion que certains d’entre vous connaissent",
@@ -45,6 +72,7 @@ const dataCitationsLangueDeBois = [
     "le particularisme dû à notre histoire unique",
     "l’aspiration plus que légitime de chacun au renouveau"
   ],
+  // Next
   [
     "doit s’intégrer à la finalisation globale",
     "oblige à la prise ne compte encore plus effective",
@@ -54,6 +82,7 @@ const dataCitationsLangueDeBois = [
     "doit nous amener au choix réellement impératif",
     "doit prendre en compte les besoins"
   ],
+  // End
   [
     "d’un processus allant vers plus d’égalité!",
     "d’un avenir s’orientant vers plus de progrès et plus de justice.",
@@ -65,7 +94,7 @@ const dataCitationsLangueDeBois = [
   ]
 ];
 
-/*-----------------Variables-----------------*/
+/*-----------------Variables globales-----------------*/
 
 let typeCitation = null;
 let numberCitation = null;
@@ -80,10 +109,13 @@ class Blablatron {
     this._end = end;
   }
 
-  // quote generator
+  // Quote generator
   generateCitation() {
     const start = this._begin[Math.floor(Math.random() * this._begin.length)];
-    const middle = this._middle[Math.floor(Math.random() * this._middle.length)];
+    console.log(this._begin.length);
+    const middle = this._middle[
+      Math.floor(Math.random() * this._middle.length)
+    ];
     const next = this._next[Math.floor(Math.random() * this._next.length)];
     const end = this._end[Math.floor(Math.random() * this._end.length)];
 
@@ -115,85 +147,68 @@ const citationsLangueDeBois = new Blablatron(
 
 /*-----------------Event listeners-----------------*/
 
-$(".dropdown-menu li a").click(function () {
-  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
-  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
-}); // Permet de remplacer le titre du boutton dropdown par la sélection choisie
-
-citationLangueDeVipereBtn.addEventListener("click", function () {
-  typeCitation = "LangueDeVipere";
+// Replace the title of the dropdown button with the selected selection
+$(".dropdown-menu li a").click(function() {
+  $(this)
+    .parents(".dropdown")
+    .find(".btn")
+    .html($(this).text() + ' <span class="caret"></span>');
+  $(this)
+    .parents(".dropdown")
+    .find(".btn")
+    .val($(this).data("value"));
 });
 
-citationLangueDeBoisBtn.addEventListener("click", function () {
-  typeCitation = "langue de bois";
+// Listening the button type choice
+
+typeCitationValue.addEventListener("click", function(type) {
+  typeCitation = type.target.innerHTML;
 });
 
-postOneQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit1').checked) {
-    numberCitation = document.getElementById('nbCit1').value;
-  }
-  numberCitation = 1;
+// Listening the button number choice
+
+numberCitationValue.addEventListener("click", function(number) {
+  numberCitation = number.target.innerHTML;
 });
 
-postTwoQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit2').checked) {
-    numberCitation = document.getElementById('nbCit2').value;
-  }
-  numberCitation = 2;
-});
-
-postThreeQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit3').checked) {
-    numberCitation = document.getElementById('nbCit3').value;
-  }
-  numberCitation = 3;
-});
-
-postFourQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit4').checked) {
-    numberCitation = document.getElementById('nbCit4').value;
-  }
-  numberCitation = 4;
-});
-
-postFiveQuoteBtn.addEventListener("click", function () {
-  if (document.getElementById('nbCit5').checked) {
-    numberCitation = document.getElementById('nbCit5').value;
-  }
-  numberCitation = 5;
-});
-
-tellMeMoreBtn.addEventListener("click", function () {
-
+// Listening the button Tell me more
+tellMeMoreBtn.addEventListener("click", function() {
   let generatedCitation = "";
 
-  if (typeCitation === "LangueDeVipere") {
+  if (typeCitation === "Langue de vipère") {
     if (numberCitation === null) {
-      alert('Maintenant que tu as choisi le type de citation, sélectionne le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
+      alert(
+        "Maintenant que tu as choisi le type de citation, sélectionne le nombre de citations que tu veux générer, puis clique sur Tell Me More !"
+      );
     } else {
       for (let i = 0; i < numberCitation; i++) {
         generatedCitation += citationsLangueDeVipere.generateCitation();
-        generatedCitation += '<br />'
-        generatedCitation += ' <br />'
+        generatedCitation += "<br />";
+        generatedCitation += " <br />";
       }
       citationsLangueDeVipere.displayCitation(generatedCitation);
     }
-  } else if (typeCitation === "langue de bois") {
+  } else if (typeCitation === "Langue de bois") {
     if (numberCitation === null) {
-      alert('Maintenant que tu as choisi le type de citation, sélectionne le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
+      alert(
+        "Maintenant que tu as choisi le type de citation, sélectionne le nombre de citations que tu veux générer, puis clique sur Tell Me More !"
+      );
     } else {
       for (let i = 0; i < numberCitation; i++) {
         generatedCitation += citationsLangueDeBois.generateCitation();
-        generatedCitation += '<br />'
-        generatedCitation += '<br />'
+        generatedCitation += "<br />";
+        generatedCitation += "<br />";
       }
       citationsLangueDeBois.displayCitation(generatedCitation);
     }
   } else {
-    alert('Choisis le type de blabla et le nombre de citations que tu veux générer, puis clique sur Tell Me More !');
+    alert(
+      "Choisis le type de blabla et le nombre de citations que tu veux générer, puis clique sur Tell Me More !"
+    );
   }
 });
 
-stopItBtnBtn.addEventListener("click", function () {
+// Listening the button Stop it please
+stopItBtn.addEventListener("click", function() {
   textZone.innerHTML = "";
-})
+});

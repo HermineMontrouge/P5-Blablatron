@@ -2,12 +2,10 @@
 <html lang="fr">
 
 <head>
-  <!-- Metas -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-  <!-- links -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
   <link rel="stylesheet" href="style/style.css" />
@@ -54,12 +52,12 @@
             <!-- Type of citation  -->
             <div class="col-md-3 typeCit">
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="true">
                   Choisi ton blabla
                   <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownCitationType">
                   <li><a class="dropdown-item" id="typeCit1" value="1"><Label>Langue de vipère</Label></a></li>
                   <li><a class="dropdown-item" id="typeCit2" value="2"><Label>Langue de bois</Label></a></li>
                 </ul>
@@ -68,12 +66,12 @@
             <!-- Number of citations -->
             <div class="col-md-3 nbCit">
               <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="true">
                   Combien de blabla?
                   <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdownNbCitationValue">
                   <li><a class="dropdown-item" id="nbCit1" value="1">1</a></li>
                   <li><a class="dropdown-item" id="nbCit2" value="2">2</a></li>
                   <li><a class="dropdown-item" id="nbCit3" value="3">3</a></li>
@@ -101,7 +99,6 @@
     </div>
   </section>
 
-  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
   </script>
